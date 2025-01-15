@@ -1,0 +1,10 @@
+services:
+  desafio-financeiro-reports:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: production
