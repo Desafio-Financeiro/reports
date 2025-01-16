@@ -1,23 +1,21 @@
-import { Component } from '@angular/core';
-import { ChartModule } from 'primeng/chart';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-bar-chart',
-  imports: [ChartModule],
-  templateUrl: './bar-chart.component.html',
+  selector: "app-bar-chart",
+  templateUrl: "./bar-chart.component.html",
 })
 export class BarChartComponent {
   basicData = {
-    labels: ['Outubro', 'Novembro', 'Dezembro', 'Janeiro'],
+    labels: ["Outubro", "Novembro", "Dezembro", "Janeiro"],
     datasets: [
       {
-        label: 'Débitos',
-        backgroundColor: '#2567F9',
+        label: "Débitos",
+        backgroundColor: "#2567F9",
         data: [66000, 49000, 81000, 36000],
       },
       {
-        label: 'Créditos ',
-        backgroundColor: '#F1823D',
+        label: "Créditos ",
+        backgroundColor: "#F1823D",
         data: [68000, 18000, 60000, 14000],
       },
     ],
@@ -29,16 +27,16 @@ export class BarChartComponent {
     plugins: {
       legend: {
         labels: {
-          color: '#fff',
+          color: "#fff",
           usePointStyle: true,
-          pointStyle: 'circle',
+          pointStyle: "circle",
         },
       },
       tooltip: {
         callbacks: {
           label: function (tooltipItem: any) {
             const value = tooltipItem.raw;
-            return `R$ ${value.toLocaleString('pt-BR', {
+            return `R$ ${value.toLocaleString("pt-BR", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}`;
@@ -49,18 +47,18 @@ export class BarChartComponent {
     scales: {
       x: {
         ticks: {
-          color: '#fff',
+          color: "#fff",
         },
         grid: {
-          color: 'rgba(255,255,255,0.2)',
+          color: "rgba(255,255,255,0.2)",
         },
       },
       y: {
         ticks: {
-          color: '#fff',
+          color: "#fff",
         },
         grid: {
-          color: 'rgba(255,255,255,0.2)',
+          color: "rgba(255,255,255,0.2)",
         },
       },
     },

@@ -1,14 +1,12 @@
 .content {
   background-color: #cbcbcb;
-  width: 690px;
-  top: 546px;
-  left: 564px;
   gap: 0px;
   border-radius: 8px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
 }
 
 .content h2 {
@@ -17,6 +15,12 @@
   line-height: 30.26px;
   text-align: left;
   margin: 0;
+  color: #004d61;
+  z-index: 1;
+
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 }
 
 .total {
@@ -25,12 +29,18 @@
   line-height: 30px;
   text-align: left;
   color: #004d61;
+  z-index: 1;
+
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 }
 
 .cards-wrapper {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  z-index: 1;
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -57,6 +67,10 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
+
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 }
 
 .title {
@@ -71,10 +85,31 @@
   line-height: 24px;
 }
 
+.statistics {
+  z-index: 1;
+}
+
 .statistics h3 {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  color: #000;
+  color: #004d61;
+  margin-bottom: 32px;
+
+  @media (max-width: 600px) {
+    text-align: center;
+  }
+}
+
+.pixels-top {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.pixels-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
