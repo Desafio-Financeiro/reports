@@ -1,11 +1,11 @@
-import { Injector, NgModule } from "@angular/core";
-import { ChartModule } from "primeng/chart";
-import { BrowserModule } from "@angular/platform-browser";
+import { Injector, NgModule } from '@angular/core';
+import { ChartModule } from 'primeng/chart';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from "./app.component";
-import { createCustomElement } from "@angular/elements";
-import { DoughnutChartModule } from "./doughnut-chart/doughnut-chart.module";
-import { BarChartModule } from "./bar-chart/bar-chart.module";
+import { AppComponent } from './app.component';
+import { createCustomElement } from '@angular/elements';
+import { DoughnutChartModule } from './doughnut-chart/doughnut-chart.module';
+import { BarChartModule } from './bar-chart/bar-chart.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +15,10 @@ import { BarChartModule } from "./bar-chart/bar-chart.module";
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    const element = createCustomElement(AppComponent, { injector: injector });
-    customElements.define("angular-app-component", element);
+    const tagName = 'angular-app-component';
+    if (!customElements.get(tagName)) {
+      const element = createCustomElement(AppComponent, { injector });
+      customElements.define(tagName, element);
+    }
   }
 }
