@@ -1,7 +1,7 @@
-import { Injector, NgModule } from "@angular/core";
-import { BarChartComponent } from "./bar-chart.component";
-import { createCustomElement } from "@angular/elements";
-import { ChartModule } from "primeng/chart";
+import { Injector, NgModule } from '@angular/core';
+import { BarChartComponent } from './bar-chart.component';
+import { createCustomElement } from '@angular/elements';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [BarChartComponent],
@@ -10,9 +10,10 @@ import { ChartModule } from "primeng/chart";
 })
 export class BarChartModule {
   constructor(private injector: Injector) {
-    const element = createCustomElement(BarChartComponent, {
-      injector: injector,
-    });
-    customElements.define("angular-bar-chart-component", element);
+    const tagName = 'angular-bar-chart-component';
+    if (!customElements.get(tagName)) {
+      const element = createCustomElement(BarChartComponent, { injector });
+      customElements.define(tagName, element);
+    }
   }
 }
