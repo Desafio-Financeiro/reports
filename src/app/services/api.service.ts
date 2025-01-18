@@ -16,4 +16,12 @@ export class ApiService {
       })
     );
   }
+
+  getTransactions() {
+    return this.http.get(`${environment.apiUrl}/transactions?userId=1`).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }
