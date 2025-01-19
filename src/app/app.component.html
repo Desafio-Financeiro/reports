@@ -6,21 +6,21 @@
     class="pixels-top"
   />
   <h2>Relatórios</h2>
-  <span class="total">Total: R$ 50.000.00</span>
+  <span class="total">Saldo total: {{ balance.currentAccount }}</span>
   <div class="cards-wrapper">
     <div class="card">
-      <p class="title">Débitos</p>
-      <p class="value">R$ 36,000.00</p>
+      <p class="title">Saques</p>
+      <p class="value">{{ transfersFormated }}</p>
     </div>
     <div class="card">
-      <p class="title">Créditos</p>
-      <p class="value">R$ 14,000.00</p>
+      <p class="title">Depósitos</p>
+      <p class="value">{{ depositsFormated }}</p>
     </div>
   </div>
   <div class="statistics">
     <h3>Estatísticas</h3>
     <div class="card chart">
-      <span>Relatório deste mês</span>
+      <span>Relatório geral da conta</span>
       <app-doughnut-chart></app-doughnut-chart>
       <span>Relatórios dos últimos 4 meses</span>
       <app-bar-chart></app-bar-chart>

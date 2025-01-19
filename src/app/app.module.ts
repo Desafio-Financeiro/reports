@@ -4,12 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { createCustomElement } from '@angular/elements';
-import { DoughnutChartModule } from './doughnut-chart/doughnut-chart.module';
-import { BarChartModule } from './bar-chart/bar-chart.module';
+import { HttpClientModule } from '@angular/common/http';
+import { DoughnutChartModule } from './components/doughnut-chart/doughnut-chart.module';
+import { BarChartModule } from './components/bar-chart/bar-chart.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ChartModule, DoughnutChartModule, BarChartModule],
+  imports: [
+    BrowserModule,
+    ChartModule,
+    DoughnutChartModule,
+    BarChartModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
