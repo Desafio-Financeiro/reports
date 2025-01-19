@@ -1,22 +1,53 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import {
+  GroupedTransaction,
+  Transaction,
+} from '../../helpers/groupTransactionsByMonth';
 
 @Component({
-  selector: "app-bar-chart",
-  templateUrl: "./bar-chart.component.html",
+  selector: 'app-bar-chart',
+  templateUrl: './bar-chart.component.html',
 })
 export class BarChartComponent {
+  transactions: GroupedTransaction[] = JSON.parse(
+    sessionStorage.getItem('transactions') || ''
+  );
+  months: string[] = this.transactions.map((month) => month.monthName);
+  deposits: number[] = this.transactions.map((month) => {
+    return (
+      month.transactions.reduce((acc: number, transaction: Transaction) => {
+        if (transaction.type === 'deposito') {
+          return (acc += transaction.value);
+        }
+
+        return (acc += 0);
+      }, 0) / 100
+    );
+  });
+  transfers: number[] = this.transactions.map((month) => {
+    return (
+      month.transactions.reduce((acc: number, transaction: Transaction) => {
+        if (transaction.type === 'saque') {
+          return (acc += transaction.value);
+        }
+
+        return (acc += 0);
+      }, 0) / 100
+    );
+  });
+
   basicData = {
-    labels: ["Outubro", "Novembro", "Dezembro", "Janeiro"],
+    labels: this.months,
     datasets: [
       {
-        label: "Débitos",
-        backgroundColor: "#2567F9",
-        data: [66000, 49000, 81000, 36000],
+        label: 'Saques',
+        backgroundColor: '#2567F9',
+        data: this.transfers,
       },
       {
-        label: "Créditos ",
-        backgroundColor: "#F1823D",
-        data: [68000, 18000, 60000, 14000],
+        label: 'Depósitos',
+        backgroundColor: '#F1823D',
+        data: this.deposits,
       },
     ],
   };
@@ -27,16 +58,16 @@ export class BarChartComponent {
     plugins: {
       legend: {
         labels: {
-          color: "#fff",
+          color: '#fff',
           usePointStyle: true,
-          pointStyle: "circle",
+          pointStyle: 'circle',
         },
       },
       tooltip: {
         callbacks: {
           label: function (tooltipItem: any) {
             const value = tooltipItem.raw;
-            return `R$ ${value.toLocaleString("pt-BR", {
+            return `R$ ${value.toLocaleString('pt-BR', {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}`;
@@ -47,18 +78,18 @@ export class BarChartComponent {
     scales: {
       x: {
         ticks: {
-          color: "#fff",
+          color: '#fff',
         },
         grid: {
-          color: "rgba(255,255,255,0.2)",
+          color: 'rgba(255,255,255,0.2)',
         },
       },
       y: {
         ticks: {
-          color: "#fff",
+          color: '#fff',
         },
         grid: {
-          color: "rgba(255,255,255,0.2)",
+          color: 'rgba(255,255,255,0.2)',
         },
       },
     },

@@ -5,11 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './doughnut-chart.component.html',
 })
 export class DoughnutChartComponent {
+  deposits: number = Number(sessionStorage.getItem('deposits') || 0) / 100;
+  transfers: number = Number(sessionStorage.getItem('transfers') || 0) / 100;
+
   data = {
     labels: ['Saques', 'Depósitos'],
     datasets: [
       {
-        data: [36000, 14000],
+        data: [this.transfers, this.deposits],
         backgroundColor: ['#2567F9', '#F1823D'],
         borderWidth: 0,
       },
