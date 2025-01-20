@@ -2,7 +2,7 @@ services:
   desafio-financeiro-reports:
     build: .
     ports:
-      - "3001:80"
+      - "8080:80"
     volumes:
       - .:/app
       - /app/node_modules
