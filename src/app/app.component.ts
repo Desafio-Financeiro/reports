@@ -17,7 +17,6 @@ export class AppComponent {
     id: '',
     userId: '',
     currentAccount: '',
-    investmentsAccount: [{ fixedIncome: '', variableIncome: '' }],
   };
 
   depositsFormated: string = '';
@@ -31,16 +30,7 @@ export class AppComponent {
       this.balance = {
         id: res.id,
         userId: res.userId,
-        currentAccount: formatCurrency(this.currencyPipe, res.currentAccount),
-        investmentsAccount: [
-          {
-            fixedIncome: formatCurrency(this.currencyPipe, res.fixedIncome),
-            variableIncome: formatCurrency(
-              this.currencyPipe,
-              res.variableIncome
-            ),
-          },
-        ],
+        currentAccount: formatCurrency(this.currencyPipe, res.total),
       };
     });
 

@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getBalance() {
-    return this.http.get(`${environment.apiUrl}/balance/1`).pipe(
+    return this.http.get(`${environment.apiUrl}/balance?userId=1`).pipe(
       map((res: any) => {
         return res;
       })

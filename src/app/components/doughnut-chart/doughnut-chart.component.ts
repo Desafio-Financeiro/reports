@@ -9,7 +9,7 @@ export class DoughnutChartComponent {
   transfers: number = Number(sessionStorage.getItem('transfers') || 0) / 100;
 
   data = {
-    labels: ['Saques', 'Depósitos'],
+    labels: ['Transferências', 'Depósitos'],
     datasets: [
       {
         data: [this.transfers, this.deposits],

@@ -38,7 +38,7 @@ export class BarChartComponent {
     labels: this.months,
     datasets: [
       {
-        label: 'Saques',
+        label: 'Transferências',
         backgroundColor: '#2567F9',
         data: this.transfers,
       },
