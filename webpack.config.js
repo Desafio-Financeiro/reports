@@ -2,6 +2,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
+const Dotenv = require("dotenv-webpack");
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, "tsconfig.json"), []);
@@ -24,6 +25,7 @@ module.exports = {
     outputModule: true,
   },
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: "reportsApp",
       filename: "remoteEntry.js",
