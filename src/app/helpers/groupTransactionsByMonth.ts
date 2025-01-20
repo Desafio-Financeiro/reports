@@ -1,10 +1,4 @@
-export type Transaction = {
-  id: string;
-  userId: string;
-  type: 'saque' | 'deposito';
-  value: number;
-  createdAt: Date;
-};
+import { Transaction } from '../models/transaction.model';
 
 export type GroupedTransaction = {
   monthNumber: number;

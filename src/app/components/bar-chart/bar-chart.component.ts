@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  GroupedTransaction,
-  Transaction,
-} from '../../helpers/groupTransactionsByMonth';
+import { GroupedTransaction } from '../../helpers/groupTransactionsByMonth';
+import { Transaction } from '../../models/transaction.model';
 
 @Component({
   selector: 'app-bar-chart',
