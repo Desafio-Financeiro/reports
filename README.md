@@ -1,48 +1,81 @@
-# Desafio Financeiro Reports
+# Tech Challenge - Fase 2
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+## Projeto Financeiro
 
-## Running this app locally
+Projeto desenvolvido pelos alunos:
 
-To start a local development environment, run:
+- Cristiano Santos Gonçalves - RM 358858
 
-```bash
-npm i
-npm run dev
+- Isabella Soares de Lima - RM 358599
+
+## Sobre este projeto
+
+Este repositório contém o projeto Reports App e é um microfrontend remoto da aplicação. Na primeira entrega estávamos trabalhando com monorepos usando o Turborepo, porém enfrentamos diversos problemas no momento de implementar microfrontends nele, tanto usando Module Federation quando Single SPA, e por conta disso optamos por quebrar o projeto em pequenos novos repositórios e criar a comunicação entre eles utilizando **Module Federation**.
+
+Neste projetos centralizamos todas as funcionalidades relacionadas a relatórios financeiros:
+
+- Relatório de transações e depósitos do mês atual
+- Relatório comparativo de transações e depositos dos últimos quatro meses (quando esses dados existirem)
+
+Neste projeto utilizamos Angular na versão 13. A escolha de outra framework se deu tanto pela intenção de praticar os conceitos trabalhados durante o bimetre quanto para validar a comunicação entre microfrontends utilizando diferentes frameworks. A escolha da versão se deu no processo de implementação. Enfrentamos problemas de compatibilidade com o module federation utilizando a versão mais atual do Angular. Apesar de a versão 13 não receber mais suporte, foi com ela que encontramos documentação e suporte suficientes que permitiram a implementação dessa entrega.
+
+Como nosso design system foi implementado em React não conseguimos utilizar os mesmos componentes neste projeto, e por isso foi necessário recriar alguns deles. Para criação dos gráficos utilizamos a biblioteca [PrimeNG](https://primeng.org/).
+
+Mais detalhes sobre decisões de projeto e requisitos da entrega podem ser encontrados [na documentação do projeto principal da aplicação](https://github.com/Desafio-Financeiro/bank-app).
+
+## Como executar o projeto
+
+### Via script NPM
+
+Crie um arquivo `.env` na raiz do projeto com o conteúdo:
+
+```
+PUBLIC_BASE_URL=http://json-server-api-mu.vercel.app
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:3001/`. The application will automatically reload whenever you modify any of the source files.
+Instale as dependências e execute o projeto:
 
-## Running this app with Docker
+```
+npm i
+npm start
+```
 
-To start a local development environment with Docker, run:
+A aplicação deve executar na url `http://localhost:3001`.
 
-```bash
+<img src="./desktop-reports.png" />
+
+### Via Docker
+
+Execute no terminal o comando:
+
+```
 docker compose up
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:8080/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação deve executar na url `http://localhost:3001`.
 
-## Code scaffolding
+## Links para acessar as aplicações
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+[Bank APP](https://main.d1m6z57r6zgdud.amplifyapp.com/)
 
-```bash
-ng generate component component-name
-```
+[Transactions](https://main.d12mtbag2y0zom.amplifyapp.com/)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+[Reports](https://main.d3pb86cilm3vn8.amplifyapp.com/)
 
-```bash
-ng generate --help
-```
+[Landing page](https://main.d8ml3barfxfwu.amplifyapp.com/)
 
-## Building
+[API json-server](http://json-server-api-mu.vercel.app/)
 
-To build the project run:
+## Links para acessar os repositórios dos microfrontends
 
-```bash
-ng build
-```
+[Bank APP](https://github.com/Desafio-Financeiro/bank-app)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+[Transactions](https://github.com/Desafio-Financeiro/transactions)
+
+[Reports](https://github.com/Desafio-Financeiro/reports)
+
+[Landing page](https://github.com/Desafio-Financeiro/landing-page)
+
+[API json-server](https://github.com/Desafio-Financeiro/json-server-api)
+
+[Financeiro DS](https://github.com/Desafio-Financeiro/financeiro-ds)
