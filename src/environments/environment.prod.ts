@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl: process.env['PUBLIC_BASE_URL'],
+  apiUrl: 'https://json-server-api-mu.vercel.app',
 };
 
 /*
